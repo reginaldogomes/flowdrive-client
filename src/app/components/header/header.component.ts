@@ -5,5 +5,11 @@ import { Component } from '@angular/core';
 	templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-	title = 'flowdrive-client';
+	title = 'Gestão de Estacionamento';
+	isLoggedIn = false;
+
+	showMenu = false;
+	toggleNavbar() {
+		this.showMenu = !this.showMenu;
+	}
 }
