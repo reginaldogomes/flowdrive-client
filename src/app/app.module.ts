@@ -9,16 +9,18 @@ import { PageErrorComponent } from './pages/page-error/page-error.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
 	declarations: [
 		AppComponent,
-		HeaderComponent,
 		FooterComponent,
 		PageErrorComponent,
 		LoginComponent,
-		RegisterComponent
+		RegisterComponent,
+		HeaderComponent
 	],
-	imports: [BrowserModule, AppRoutingModule],
+	imports: [BrowserModule, AppRoutingModule, SharedModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

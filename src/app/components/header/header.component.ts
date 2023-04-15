@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 	templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-	title = 'Gestão de Estacionamento';
+	title = 'Estacionamento Digital';
 	isLoggedIn = false;
 
 	showMenu = false;
