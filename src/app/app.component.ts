@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-root',
-	template: '<app-header></app-header><router-outlet></router-outlet>'
+	template:
+		'<app-header *ngIf="!isLoginPage"></app-header><router-outlet></router-outlet><app-footer *ngIf="!isLoginPage"></app-footer>'
 })
 export class AppComponent {
-	isLoginPage: boolean = true;
+	isLoginPage: Boolean = false;
 
-	constructor(private route: ActivatedRoute) {}
-
-	ngOnInit() {
-		this.route.url.subscribe((event) => {
-			console.log(event[0]); // It's an array remember [0]
-			console.log(event[0].path); // e.g. /products
-			console.log(event[0].parameters); // e.g. { id: 'x8klP0' }
-		});
+	constructor(private Location: Location) {
+		let urlPath = this.Location.path();
+		if (urlPath == '/login' || urlPath == '/register') {
+			this.isLoginPage = true;
+		}
 	}
 }
