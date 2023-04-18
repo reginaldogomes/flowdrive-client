@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-root',
@@ -9,10 +9,17 @@ import { Location } from '@angular/common';
 export class AppComponent {
 	isLoginPage: Boolean = false;
 
-	constructor(private Location: Location) {
-		let urlPath = this.Location.path();
-		if (urlPath == '/login' || urlPath == '/register') {
-			this.isLoginPage = true;
-		}
+	constructor(private router: Router) {
+		router.events.subscribe((val) => {
+			if (val instanceof NavigationEnd) {
+				if (val.url == '/login' || val.url == '/register') {
+					this.isLoginPage = true;
+				} else {
+					this.isLoginPage = false;
+				}
+			}
+		});
 	}
+
+	ngOnInit() {}
 }

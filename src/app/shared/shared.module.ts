@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
-import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 
 @NgModule({
-	declarations: [ButtonComponent, DashboardComponent],
+	declarations: [ButtonComponent],
 	exports: [ButtonComponent],
 	imports: [CommonModule]
 })
